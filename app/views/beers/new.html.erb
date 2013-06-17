@@ -1,0 +1,22 @@
+<h1>New Beer</h1>
+
+<% @beer.errors.full_messages.each do |msg| %>
+  <p><%= msg %></p>
+<% end %>
+
+<%= form_for @beer do |f| %>
+
+  <div class='field'>
+    <%= f.label :name, 'Beer Name' %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :abv, 'Alcohol by Volume' %>
+    <%= f.text_field :abv %>
+  </div>
+
+  <div class='actions'>
+    <%= f.submit %>
+  </div>
+<% end %>
