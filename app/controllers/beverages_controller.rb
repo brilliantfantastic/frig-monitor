@@ -1,11 +1,4 @@
 class BeveragesController < ApplicationController
-  # Solution to lab 3 part 3
-  # def index
-  #   beer = Beer.new('Edmond Fitzgerald', '8.7')
-  #   render test: "My Favorite beer is #{beer.name}"
-  # end
-
-  # Solution to lab 4
   def index
     @frig = Refrigerator.new
     @frig.add_drink Beer.new(name: 'Edmond Fitzgerald', abv: 4.8)
