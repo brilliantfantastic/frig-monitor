@@ -12,7 +12,15 @@ describe 'A new', Beer do
     beer.valid?.must_equal true
   end
 
-  it 'is invalid if it has no name'
+  it 'is invalid if it has no name' do
+    beer = Beer.new
+    beer.valid?.must_equal false
+
+    beer.name = 'x'
+    beer.name_confirmation = 'x'
+    beer.valid?.must_equal true
+  end
+
   it 'is valid if it has a name, confirmation, and no ABV'
   it 'is invalid if the name has already been taken'
 
