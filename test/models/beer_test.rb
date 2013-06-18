@@ -26,7 +26,11 @@ describe 'A new', Beer do
     beer.valid?.must_equal true
   end
 
-  it 'is invalid if the name has already been taken'
+  it 'is invalid if the name has already been taken' do
+    Beer.create(name: 'Boston Logger', name_confirmation: 'Boston Logger')
+    beer = Beer.new(name: 'Boston Logger', name_confirmation: 'Boston Logger')
+    beer.valid?.must_equal false
+  end
 
   describe 'with a name' do
     it 'is invalid if the ABV is not one or two digits followed by a period and up to 2 digits'
