@@ -53,4 +53,14 @@ describe 'A new', Beer do
       @beer.valid?.must_equal true
     end
   end
+
+  describe 'associations' do
+    it 'can belong to a refrigerator' do
+      beer = Beer.new(name: 'Bud lite', abv: 3.25)
+      frig = Refrigerator.create
+      beer.refrigerator = frig
+      beer.save!
+      beer.refrigerator_id.must_equal frig.id
+    end
+  end
 end
