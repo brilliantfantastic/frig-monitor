@@ -64,5 +64,10 @@ module FrigMonitor
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # set minitest spec as default testing framework
+    config.generators do |g|
+      g.test_framework :mini_test, spec: true
+    end
   end
 end
