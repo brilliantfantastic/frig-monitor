@@ -10,7 +10,7 @@
   </div>
 <% end %>
 
-<%= form_for @beer do |f| %>
+<%= form_for @beer, url: frige_beers_path(@frig) do |f| %>
 
   <div class='field'>
     <%= f.label :name, 'Beer Name' %>

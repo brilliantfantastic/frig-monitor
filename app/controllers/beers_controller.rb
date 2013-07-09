@@ -4,13 +4,15 @@ class BeersController < ApplicationController
   end
 
   def new
+    @frig = Refrigerator.find(params[:frige_id])
     @beer = Beer.new
   end
 
   def create
-    @beer = Beer.new(params[:beer])
+    @frig = Refrigerator.find(params[:frige_id])
+    @beer = @frig.beers.new(params[:beer])
     if @beer.save
-      redirect_to beer_path(@beer)
+      redirect_to frige_beer_path(@frig, @beer)
     else
       render :new
     end
