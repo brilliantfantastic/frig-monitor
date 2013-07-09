@@ -1,0 +1,23 @@
+<h1>New Refrigerator</h1>
+
+<% if @frig.errors.any? %>
+  <div class='error'>
+    <ul>
+      <% @frig.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @frig, url: friges_path do |f| %>
+
+  <div class='field'>
+    <%= f.label :brand, 'Brand' %>
+    <%= f.text_field :brand %>
+  </div>
+
+  <div class='actions'>
+    <%= f.submit %>
+  </div>
+<% end %>
