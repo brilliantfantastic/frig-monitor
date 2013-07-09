@@ -1,0 +1,7 @@
+<h1><%= @frig.brand %></h1>
+
+<ul class='beers'>
+  <% @frig.beers.each do |beer| %>
+    <li class='beer'><%= beer.name %></li>
+  <% end %>
+</ul>
