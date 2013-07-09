@@ -1,7 +1,8 @@
 FrigMonitor::Application.routes.draw do
-  resources :users, only: [:new, :create]
-  resources :sessions, only: [:create]
+  resources :users, only: [:create]
+  match '/signup' => 'users#new'
 
+  resources :sessions, only: [:create]
   match '/signin' => 'sessions#new'
   match '/signout' => 'sessions#destroy'
 
@@ -9,5 +10,7 @@ FrigMonitor::Application.routes.draw do
     resources :beers, only: [:new, :create, :show]
   end
 
-  root :to => 'beverages#index'
+  match '/kitchen' => 'friges#index'
+
+  root :to => redirect('/signup')
 end

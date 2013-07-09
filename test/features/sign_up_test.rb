@@ -17,7 +17,7 @@ feature 'Sign Up Feature Test' do
 
   describe 'with valid data' do
     before do
-      visit new_user_path
+      visit signup_path
       create_user(username: 'dhh', email: 'dhh@example.com',
                   password: 'password', confirmation: 'password')
     end
@@ -28,14 +28,14 @@ feature 'Sign Up Feature Test' do
       dhh.email.must_equal 'dhh@example.com'
     end
 
-    scenario 'it redirects to the root of the site' do
-      current_path.must_equal root_path
+    scenario 'it redirects to the kitchen' do
+      current_path.must_equal kitchen_path
     end
   end
 
   describe 'with invalid data' do
     before do
-      visit new_user_path
+      visit signup_path
       create_user(username: 'dhh', email: 'dhh@example.com',
                   password: 'x', confirmation: 'y')
     end
