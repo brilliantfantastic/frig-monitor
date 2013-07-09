@@ -17,10 +17,12 @@ class FrigesController < ApplicationController
   def create
     params[:refrigerator].merge!(user_id: current_user.id)
     @frig = Refrigerator.create(params[:refrigerator])
-    if @frig.valid?
-      redirect_to frige_path(@frig)
-    else
-      render :new
+    respond_to do |format|
+      format.js
+      format.html do
+        render :new and return unless @frig.valid?
+        redirect_to frige_path(@frig)
+      end
     end
   end
 end

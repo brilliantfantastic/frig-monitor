@@ -1,0 +1,5 @@
+$('.sidebar form')[0].reset();
+$('.sidebar form').hide();
+$('.add-frig').show();
+
+$('.friges').append("<%= j render(partial: 'frig_row', locals: { frig: @frig } ) %>");
