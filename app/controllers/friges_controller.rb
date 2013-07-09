@@ -1,10 +1,13 @@
 class FrigesController < ApplicationController
+  before_filter :require_login
+
   def index
-    @friges = Refrigerator.all
+    @friges = Refrigerator.for(current_user)
   end
 
   def show
     @frig = Refrigerator.find(params[:id])
+    ensure_frig_visible @frig
   end
 
   def new
