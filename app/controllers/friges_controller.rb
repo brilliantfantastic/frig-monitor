@@ -1,4 +1,8 @@
 class FrigesController < ApplicationController
+  def index
+    @friges = Refrigerator.all
+  end
+
   def show
     @frig = Refrigerator.find(params[:id])
   end
