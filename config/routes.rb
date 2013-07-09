@@ -6,5 +6,7 @@ FrigMonitor::Application.routes.draw do
   match '/signin' => 'sessions#new'
   match '/signout' => 'sessions#destroy'
 
+  resources :friges, only: [:new, :create, :show]
+
   root :to => 'beverages#index'
 end
