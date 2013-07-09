@@ -1,5 +1,10 @@
 class Refrigerator < ActiveRecord::Base
-  attr_accessible :brand, :beers
+  attr_accessible :brand, :beers, :user_id
+
+  belongs_to :user
 
   has_many :beers
+
+  validates :user, presence: true
+  validates :brand, presence: true
 end

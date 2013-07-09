@@ -10,9 +10,15 @@ describe Refrigerator do
     frig.beers.must_equal [beer]
   end
 
+  it 'is invalid without a brand' do
+    frig = Refrigerator.new
+    frig.valid?.must_equal false
+    frig.errors.full_messages.must_include "Brand can't be blank"
+  end
+
   it 'can have the user_id assigned' do
     user = FactoryGirl.create :user
-    frig = Refrigerator.new(user_id: user.id)
+    frig = Refrigerator.new(brand: 'duff', user_id: user.id)
     frig.valid?.must_equal true
   end
 
