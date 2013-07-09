@@ -1,0 +1,13 @@
+<div class='sidebar'>
+  <a href='#' class='add-frig'>Add refrigerator</a>
+
+  <%= form_for Refrigerator.new, url: friges_path, remote: true do |f| %>
+    <%= f.text_field :brand %>
+  <% end %>
+
+  <ul class='friges'>
+    <% @friges.each do |frig| %>
+      <%= render partial: 'frig_row', locals: { frig: frig } %>
+    <% end %>
+  </ul>
+</div>

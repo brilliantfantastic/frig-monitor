@@ -1,7 +1,5 @@
-<h1>Refrigerators</h1>
+<h1>Kitchen</h1>
 
-<ul>
-  <% @friges.each do |frig| %>
-    <li><%= frig.brand %></li>
-  <% end %>
-</ul>
+<%= render partial: 'friges' %>
+
+<h3>Click a frig to view it's contents</h3>
